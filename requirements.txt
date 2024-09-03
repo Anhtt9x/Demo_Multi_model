@@ -1,0 +1,22 @@
+llama-index-multi-modal-llms-gemini
+llama-index-vector-stores-lancedb
+llama-index-llms-gemini
+llama-index
+llama-index-embeddings-gemini
+matplotlib
+google-generativeai>=0.3.0
+lancedb
+moviepy
+pytube
+pydub
+SpeechRecognition
+ffmpeg-python
+soundfile
+torch
+torchvision
+scikit-image
+ftfy
+regex
+tqdm
+
+-e .
