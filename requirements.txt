@@ -18,5 +18,13 @@ scikit-image
 ftfy
 regex
 tqdm
+openai-whisper
+llama-index-embeddings-clip
+pytubefix
+IPython
+llama-index-embeddings-huggingface
+llama-index-embeddings-instructor
+python-dotenv
+transformers
 
 -e .

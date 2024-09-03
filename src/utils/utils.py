@@ -1,5 +1,6 @@
 from moviepy.editor import VideoFileClip
-from pytube import YouTube
+from pytubefix import YouTube
+from pytubefix.cli import on_progress
 from pathlib import Path
 import speech_recognition as sr
 from matplotlib import pyplot as plt
@@ -20,11 +21,11 @@ def video_to_audio(video_path, output_path):
 
 
 def audio_to_text(audio_path):
-  recognizer = sr.Recognizer
+  recognizer = sr.Recognizer()
   with sr.AudioFile(audio_path) as source:
     audio_data = recognizer.record(source)
     try:
-      text = recognizer.recognize_google_cloud(audio_data)
+      text = recognizer.recognize_whisper(audio_data)
     except sr.UnknownValueError:
       text = "Google Speech Recognition could not understand audio"
     except sr.RequestError as e:
@@ -33,7 +34,7 @@ def audio_to_text(audio_path):
 
 
 def download_youtube_video(video_url, output_path):
-  yt = YouTube(video_url)
+  yt = YouTube(video_url, on_progress_callback = on_progress)
   meta = {"Author":yt.author,"Titile":yt.title,"Views":yt.views}
   video_stream = yt.streams.get_highest_resolution()
   video_stream.download(output_path=output_path, filename='input_vid.mp4')
