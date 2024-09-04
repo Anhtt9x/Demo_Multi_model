@@ -1,12 +1,11 @@
-qa_tmpl_str=(
-    "Based on the provided information, including relevant images and retrieved context from the video, \
-    accurately and precisely answer the query without any additional prior knowledge.\n"
+from src.components.data_transformation import load_index_from_storage
+from src.components.model_trainer import retriever
+from src.components.model_evaluation import plot_images
 
-    "---------------------\n"
-    "Context: {context_str}\n"
-    "Metadata for video: {metadata_str} \n"
+retriever_engine=load_index_from_storage("mixed_data").as_retriever(similariry_top_k=1, image_similarity_top_k=3)
 
-    "---------------------\n"
-    "Query: {query_str}\n"
-    "Answer: "
-)
+
+query="can you tell me what is linear regression? explain equation of the multiple linear regression?"
+imgs, text = retriever(retriever_engine=retriever_engine,query_str=query)
+
+plot_images(images_path=imgs)

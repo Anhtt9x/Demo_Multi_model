@@ -2,10 +2,6 @@ from llama_index.core.response.notebook_utils import display_source_node
 from llama_index.core.schema import ImageNode
 from src.components.data_transformation import load_index_from_storage
 
-
-
-retriever_engine = load_index_from_storage("mixed_data").as_retriever(similarity_top_k=1,image_similariry_top_k=3)
-
 def retriever(retriever_engine,query_str):
     retrival_result = retriever_engine.retrieve(query_str)
 
@@ -27,5 +23,5 @@ def retriever(retriever_engine,query_str):
 if __name__ == "__main__":
 
     query="can you tell me what is linear regression? explain equation of the multiple linear regression?"
-
-    print(retriever(retriever_engine=retriever_engine,query_str=query))
+    retriever_engine = load_index_from_storage("mixed_data").as_retriever(similarity_top_k=1,image_similariry_top_k=3)
+    print(retriever(retriever_engine=retriever_engine,query_str=query)) 

@@ -3,11 +3,7 @@ from llama_index.core import SimpleDirectoryReader, StorageContext, Settings
 from llama_index.vector_stores.lancedb import LanceDBVectorStore
 from llama_index.core.indices import MultiModalVectorStoreIndex
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from PIL import Image
-from typing import List
-import numpy as np
 
-# Lớp CLIPEmbedding không kế thừa từ Pydantic
 
 
 def load_index_from_storage(directory_path: str) -> MultiModalVectorStoreIndex:
