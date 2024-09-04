@@ -1,0 +1,2 @@
+lancedb/text_collection.lance/data/665c1be9-57a0-4bab-8590-96af0774fc5e.lance filter=lfs diff=lfs merge=lfs -text
+lancedb/text_collection.lance/data/5f9835c9-f510-4545-b0e9-a87ad009930c.lance filter=lfs diff=lfs merge=lfs -text
