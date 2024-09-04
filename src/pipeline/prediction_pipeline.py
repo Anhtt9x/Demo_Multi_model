@@ -10,7 +10,7 @@ import json
 load_dotenv()
 
 query_str="can you tell me what is linear regression and equation of linear regression?"
-retriever_engine = load_index_from_storage("mixed_data").as_retriever(similarity_top_k=1,image_similariry_top_k=3)
+retriever_engine = load_index_from_storage("mixed_data").as_retriever(similarity_top_k=1,image_similarity_top_k=3)
 imgs, text = retriever(retriever_engine=retriever_engine,query_str=query_str)
 
 qa_tmpl_str=(
