@@ -16,7 +16,7 @@ def retriever(retriever_engine,query_str):
             display_source_node(res_node,source_length=200)
             retrieved_text.append(res_node.text)
 
-    return retrieved_text,retrieved_image
+    return retrieved_image,retrieved_text
 
 
 
